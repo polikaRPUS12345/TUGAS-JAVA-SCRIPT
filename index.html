@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <titl>javaScript</titl>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+        .start {
+            margin: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .start h1 {
+            font-size: 35px;
+            letter-spacing: 1px;
+            color: rgb(157, 179, 60);
+        }
+        .start p {
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(115, 128, 0);
+            letter-spacing: 1px;
+        }
+        .form {
+            margin: 0px 250px 40px;
+        }
+        form {
+            padding: 50px;
+            background-color: rgb(230, 191, 223);
+            border-radius: 5px;
+            display: grid;
+            grid-gap: 25px;
+            grid-template-columns: 1fr;
+        }
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 5px;
+            border: 2px solid rgb(209, 159, 207);
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=text]:focus {
+            border-color: rgb(23, 0, 128);
+        }
+        select:focus {
+            border-color: rgb(2, 0, 128);
+        }
+        textarea:focus {
+            border-color: rgb(13, 0, 128);
+        }
+        .button {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+        }
+        input[type=button], input[type=reset] {
+            width: 80px;
+            padding: 3px;
+            color: white;
+            background-color: rgb(209, 186, 159);
+            border-radius: 3px;
+            border-color: rgb(209, 187, 159);
+            transition: 0.5s;
+        }
+        input[type=button]:hover{
+            border-color: rgb(128, 0, 6);
+            background-color: rgb(128, 0, 0);
+        }
+        input[type=reset]:hover{
+            border-color: rgb(128, 0, 0);
+            background-color: rgb(128, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <script src="java.js"></script>
+    <section>
+        <div class="start">
+            <h1> Data Mahasiswa </h1>
+            <p> Politeknik Amamapare Timika </p>
+        </div>
+        <div class="form">
+            <form name="formInput">
+                <div class="nama">
+                    <label for="nama"> Nama Mahasiswa </label> <br>
+                    <input type="text" name="namaInput">
+                </div>
+                <div class="nim">
+                    <label for="nim"> Nim </label> <br>
+                    <input type="text" name="nimInput">
+                </div>
+                <div class="kelamin">
+                    <label for="kelamin"> Jenis Kelamin </label> <br>
+                    <select name="kelaminInput">
+                        <option> Laki-Laki </option>
+                        <option> Perempuan </option>
+                    </select>
+                </div>
+                <div class="agama">
+                    <label for="agama"> Agama </label> <br>
+                    <select name="agamaInput">
+                        <option> Islam </option>
+                        <option> Kristen Protestan </option>
+                        <option>Katholik </option>
+                        <option> Hindu </option>
+                        <option> Buddha </option>
+                        <option> Konghucu </option>
+                    </select>
+                </div>
+                <div class="status">
+                    <label for="status"> Status </label> <br>
+                    <input type="radio" name="statusInput"> <label> Menikah </label>
+                </div>
+                <div class="jurusan">
+                    <label for="jurusan"> Program Studi </label> <br>
+                    <select name="jurusanInput">
+                        <option> Teknik Rekayasa Internet </option>
+                        <option> Teknik Sipil </option>
+                        <option> Teknik Pertambangan </option>
+                        <option> Teknik Listrik </option>
+                        <option> Teknik mesin </option>
+                    </select>
+                </div>
+                <div class="komentar">
+                    <label for="komentar"> Komentar </label> <br>
+                    <textarea name="komentarInput" id="komentar" cols="30" rows="10"></textarea>
+                </div>
+                <div class="button">
+                    <div class="kirim">
+                        <input type="button" value="Submit" onclick="Kirim()">
+                    </div>
+                    <div class="reset">
+                        <input type="reset" value="Reset">
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </section>
+
+    <section>
+        <div class="start">
+            <h1> Hasil Pengisian Data Mahasiswa </h1>
+            <p> Politeknik Amamapare Timika </p>
+        </div>
+        <div class="form">
+            <form name="formOutput">
+                <div class="nama">
+                    <label for="nama"> Nama Mahasiswa </label> <br>
+                    <input type="text" name="namaOutput">
+                </div>
+                <div class="nim">
+                    <label for="nim"> Nim </label> <br>
+                    <input type="text" name="nimOutput">
+                </div>
+                <div class="kelamin">
+                    <label for="kelamin"> Jenis Kelamin </label> <br>
+                    <input type="text" name="kelaminOutput">
+                </div>
+                <div class="agama">
+                    <label for="agama"> Agama </label> <br>
+                    <input type="text" name="agamaOutput">
+                </div>
+                <div class="status">
+                    <label for="status"> Status </label> <br>
+                    <input type="text" name="statusOutput">
+                </div>
+                <div class="jurusan">
+                    <label for="jurusan"> Program Studi </label> <br>
+                    <input type="text" name="jurusanOutput">
+                </div>
+                <div class="komentar">
+                    <label for="komentar"> Komentar </label> <br>
+                    <textarea name="komentarOutput" id="komentar" cols="30" rows="10"></textarea>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p align="center"><strong><em> Copyright <b>POLICARPUS</b></s></strong></p>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
